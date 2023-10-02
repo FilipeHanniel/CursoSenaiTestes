@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maior  Valor</title>
+    <script>
+        let n = 1;
+        let maior = 0;
+        let valor = 0;
+
+        while (n > 0) {
+            n = parseFloat(prompt("Digite um número e zero para sair: "))
+            if (n > maior) {
+                maior = n;
+            }
+        }
+        
+        alert("Número maior: " + maior)    
+    </script>
+</head>
+<body>
+    <h1>MAIOR VALOR</h1>
+    <p>O maior valor é <script> maior </script></p>
+</body>
+</html>

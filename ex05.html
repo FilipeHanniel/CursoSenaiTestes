@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var nomePessoa = "";
+        var idadePessoa = 0;
+        const quantidadeDiasAno = 365;
+
+        
+
+        nomePessoa = prompt("Informe o nome:");
+        if ((nomePessoa != null) && (nomePessoa.length != 0)) {
+            idadePessoa = prompt("Informe a idade:");
+            if ((idadePessoa.length > 0) && (idadePessoa > 0) && (idadePessoa < 150) || (!isNaN(idadePessoa))) {
+                var diasVivido = idadePessoa * quantidadeDiasAno;
+                console.log(nomePessoa + ", Você já viveu " + diasVivido + " dias.")
+            } else {
+                console.log('IDADE INVÁLIDA!')                
+            }            
+        } else {
+            alert('NOME INVÁLIDO')
+        }
+        
+
+        
+
+        
+    </script>
+</head>
+<body>
+    <h1>Idade em Dias</h1>
+    <p>Escrever algorítimo para ler o nome e idade de uma pessoa.</p>
+</body>
+</html>
