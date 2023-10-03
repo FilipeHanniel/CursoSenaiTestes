@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Contatos</title>
+    <script>
+        var lista = [];
+
+        var opcao;
+
+        while (opcao != 0) {
+            var nome = prompt("Digite o nome")
+            var email = prompt("Digire o email")
+            var celular = prompt("Digite o celular")
+            var cidade = prompt("Digire a cidade")
+
+            var contato = {
+                "nome": nome,
+                "email": email,
+                "celular": celular,
+                "cidade": cidade
+            }
+
+            lista.push(contato);
+
+            opcao = prompt("Digite zero para sair: ")
+        }
+
+        var exibirItens = () => {
+            lista.forEach((item) => {
+
+            })
+        }
+
+        // var contato = {
+        //     "nome" : "Filipe",
+        //     "email" : "meuemail@gmail.com",
+        //     "celular" : "62 9998887772",
+        //     "cidade" : "Goiânia"
+        // }
+
+        // lista.push(contato);
+        // lista.push(contato);
+        // lista.push(contato);
+        // lista.push(contato);
+        // lista.push(contato);
+
+    </script>
+</head>
+<body>
+    <h1>Lista de Contatos</h1>
+
+    <button onclick="exibirItens()">Mostrar todos os itens</button>
+</body>
+</html>
