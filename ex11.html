@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request para o servidor</title>
+</head>
+<body>
+    <h1>Request para o VIA CEP</h1>
+    <p id="dados">
+        
+    </p>
+    <script>
+        console.log(1)
+
+        var carregarDados = async (dadoPersonalizado) => {
+            var resp = await fetch('https://viacep.com.br/ws/'+ dadoPersonalizado +'/json/');
+            var dados = await resp.json();
+            console.log(dados)
+            
+            var destino = document.getElementById('dados');
+
+            const cep = document.createElement('li');
+            cep.textContent = "CEP: " + dados.cep;
+            destino.appendChild(cep);
+
+
+            const item = document.createElement('li');
+            item.textContent = dados.item;
+            destino.appendChild(item);
+
+            document.getElementById('dados').textContent = dados.bairro;
+        }
+
+        carregarDados();
+        
+        
+        console.log(3)
+    </script>
+</body>
+</html>
