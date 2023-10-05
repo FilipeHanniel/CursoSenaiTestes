@@ -7,35 +7,53 @@
 </head>
 <body>
     <h1>Request para o VIA CEP</h1>
-    <p id="dados">
-        
-    </p>
+    <p>Digite um CEP e clique no botão buscar</p>
+    <input id="cep" type="number"/>
+    <button onclick="manipulador()">Carregar</button>
+    <ul id="dados">
+
+    </ul>
     <script>
-        console.log(1)
-
-        var carregarDados = async (dadoPersonalizado) => {
-            var resp = await fetch('https://viacep.com.br/ws/'+ dadoPersonalizado +'/json/');
-            var dados = await resp.json();
-            console.log(dados)
-            
-            var destino = document.getElementById('dados');
-
-            const cep = document.createElement('li');
-            cep.textContent = "CEP: " + dados.cep;
-            destino.appendChild(cep);
-
-
-            const item = document.createElement('li');
-            item.textContent = dados.item;
-            destino.appendChild(item);
-
-            document.getElementById('dados').textContent = dados.bairro;
+        
+        var manipulador = () => {
+            var cep = document.getElementById('cep').value;
+            carregarDados(cep);
         }
 
-        carregarDados();
+        var carregarDados = async (dadoPersonalizado) => {
+           try {
+             var resp = await fetch('https://viacep.com.br/ws/'+ dadoPersonalizado +'/json/');
+             var dados = await resp.json();
+             console.log(dados)
+             
+             var destino = document.getElementById('dados');
+ 
+             const item = document.createElement( 'li');
+             item.textContent = "Bairro: " + dados.bairro;
+             destino.appendChild(item);
+             
+             const cep = document.createElement( 'li');
+             cep.textContent = "CEP: " + dados.cep;
+             destino.appendChild(cep);
+ 
+             const logradouro = document.createElement( 'li');
+             logradouro.textContent = "Logradouro: " + dados.logradouro;
+             destino.appendChild(logradouro);
+ 
+             const uf = document.createElement('li');
+             uf.textContent = "UF: " + dados.uf;
+             destino.appendChild(uf);
+             
+           } catch (error) {
+            console.log('error')
+            alert("Deu erro!")
+           }
+        }
+
         
         
-        console.log(3)
+        
+        
     </script>
 </body>
 </html>

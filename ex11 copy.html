@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request para o servidor</title>
+</head>
+<body>
+    <h1>Request para o VIA CEP</h1>
+    <!-- <p>Digite um CEP e click no botão buscar</p> -->
+    <!-- <input id="cep" type="number"/>
+    <button onclick="manipulador()">Carregar</button> -->
+    <ul id="dados"></ul>
+
+    <script>
+
+        // var manipulador = () => {
+        //     var cep = document.getElementById('cep').value;
+        //     carregarDados(cep);
+        // }
+        
+
+        var carregarDados = async (dadoPersonalizado)  =>  {
+        //    try {
+            var resp = await fetch('https://viacep.com.br/ws/' + dadoPersonalizado + '/json/');
+            var dados = await resp.json();
+            console.log(dados)
+
+            var destino = document.getElementById('dados');
+
+            const cep = document.createElement( 'li');
+            cep.textContent =  "CEP: " + dados.cep;
+            destino.appendChild(cep);
+ 
+
+            const logradouro = document.createElement( 'li');
+            logradouro.textContent = "Logradouro: " +  dados.logradouro;
+            destino.appendChild(logradouro);
+
+         
+            const complemento = document.createElement( 'li');
+            complemento.textContent = "Complemento: " + dados.complemento;
+            destino.appendChild(complemento);
+
+            const item = document.createElement( 'li');
+            item.textContent = "Bairro: " + dados.bairro;
+            destino.appendChild(item);
+
+            const ddd = document.createElement( 'li');
+            ddd.textContent = "DDD: " +  dados.ddd;
+            destino.appendChild(ddd);
+
+            const localidade = document.createElement( 'li');
+            localidade.textContent = "Cidade: " +  dados.localidade;
+            destino.appendChild(localidade);
+            
+            const uf = document.createElement( 'li');
+            uf.textContent = "Estado: " + dados.uf;
+            destino.appendChild(uf);
+
+
+            const ibge = document.createElement( 'li');
+            ibge.textContent = "Numero IBGE: " + dados.ibge;
+            destino.appendChild(ibge);
+
+
+            const vazio = document.createElement( 'li');
+            destino.appendChild(vazio);
+        //    } catch (error) {
+        //     console.log('erro', error);
+        //     alert("deu erro")
+        //    }
+        }
+        carregarDados(74785130);
+    </script>
+</body>
+</html>
