@@ -1,5 +1,32 @@
 * {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: black;
-    color: aliceblue;
+    
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+#link_carrinho {
+    color: antiquewhite;
+    cursor: pointer;
+}
+
+#link_carrinho:hover {
+   font-weight: bold;
+}
+
+section {
+    margin: 50px;
+    
+}
+
+.produto {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    text-align: center;
 }
