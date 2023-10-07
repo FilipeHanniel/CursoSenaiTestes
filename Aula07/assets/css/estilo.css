@@ -3,6 +3,11 @@
     
 }
 
+main {
+    max-width: 800px;
+    margin: 0px auto;
+}
+
 header {
     background-color: #333;
     color: #fff;
@@ -21,6 +26,12 @@ header {
 
 section {
     margin: 50px;
+    background-color: gray;
+    display: flex;
+    gap: 20px;
+    
+    flex-direction: row;
+    justify-content: space-evenly;
     
 }
 
@@ -29,4 +40,14 @@ section {
     border: 1px solid #ccc;
     border-radius: 15px;
     text-align: center;
+    flex: calc(25%)
+}
+
+.produto img {
+    width: 100px;
+    height: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    min-width: 100px;
+    min-height: 100px;
 }
