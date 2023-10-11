@@ -45,7 +45,8 @@
 // ]
 
 const carrinho = [];
-const produtos = [];
+let produtos = [];
+const produtosBKP = [];
 
 const adicionarCarrinho = (numeroItem) => {
     carrinho.push(produtos[numeroItem]);
@@ -77,14 +78,27 @@ const buscarProdutos = async () => {
         } else {
             elemento = document.getElementById('blusas');
         }              
+        produtos.push(item);
+        produtosBKP.push(item);
         criarProduto(item.nome, item.alt, item.preco, item.imageURL, elemento, index);
+
     })
-    produtos.push(item);
     
+    
+}
+
+const filtrarProdutos = (categoria) => {
+    produtos = [];
+    produtos = produtosBKP.filter((produto) => {
+        return produto.tipo == categoria;
+    });
 }
 
 mostrarQuantidadeItensCarrinho();
 buscarProdutos();
 
+const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present']
 
-
+const result = words.filter((word) => {
+    return word.length > 6;
+})
