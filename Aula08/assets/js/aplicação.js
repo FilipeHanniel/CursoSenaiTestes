@@ -89,9 +89,14 @@ const buscarProdutos = async () => {
 
 const filtrarProdutos = (categoria) => {
     produtos = [];
-    produtos = produtosBKP.filter((produto) => {
-        return produto.tipo == categoria;
-    });
+    if (categoria !== "todos") {
+        produtos = produtosBKP.filter((produto) => {
+            return produto.tipo == categoria;
+        });
+    } else {
+        produtos = produtosBKP;
+    }
+    
 
     produtos.forEach((item, index) => {
         let elemento = ""
@@ -121,11 +126,18 @@ const  configuraEventListners = () => {
         filtrarProdutos("capacete");
     }) 
 
-    const botaoblusas = document.getElementById("link_filtrar_blusas");
-    botaoblusas.addEventListener("click", (ev) => {
+    const botaoBlusas = document.getElementById("link_filtrar_blusas");
+    botaoBlusas.addEventListener("click", (ev) => {
         console.log('botaoBlusas')
         limparTela();
         filtrarProdutos("blusão");
+    }) 
+
+    const botaoTodos = document.getElementById("link_filtrar_todos");
+    botaoTodos.addEventListener("click", (ev) => {
+        console.log('botaoTodos')
+        limparTela();
+        filtrarProdutos("todos");
     }) 
 }
 
