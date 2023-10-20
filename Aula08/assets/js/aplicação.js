@@ -73,7 +73,7 @@ const buscarProdutos = async () => {
     const lista = await resp.json();
     lista.forEach((item, index) => {
         let elemento = ""
-        if (item.tipo === 'capacete') {
+        if (item.tipo === 'capacetes') {
             elemento = document.getElementById('capacetes');
         } else {
             elemento = document.getElementById('blusas');
@@ -92,10 +92,47 @@ const filtrarProdutos = (categoria) => {
     produtos = produtosBKP.filter((produto) => {
         return produto.tipo == categoria;
     });
+
+    produtos.forEach((item, index) => {
+        let elemento = ""
+        if (item.tipo === 'capacetes') {
+            elemento = document.getElementById('capacetes');
+        } else {
+            elemento = document.getElementById('blusas');
+        }                     
+        criarProduto(item.nome, item.alt, item.preco, item.imageURL, elemento, index);
+
+    })
 }
+
+const limparTela = () => {
+    const blusasElement = document.getElementById("blusas");
+    blusasElement.innerHTML = "";
+
+    const capacetesElement = document.getElementById("capacetes");
+    capacetesElement.innerHTML = "";
+}
+
+const  configuraEventListners = () => {
+    const botaoCapacetes = document.getElementById("link_filtrar_capacetes");
+    botaoCapacetes.addEventListener("click", (ev) => {
+        console.log('botaoCapacetes')
+        limparTela();
+        filtrarProdutos("capacete");
+    }) 
+
+    const botaoblusas = document.getElementById("link_filtrar_blusas");
+    botaoblusas.addEventListener("click", (ev) => {
+        console.log('botaoBlusas')
+        limparTela();
+        filtrarProdutos("blusão");
+    }) 
+}
+
 
 mostrarQuantidadeItensCarrinho();
 buscarProdutos();
+configuraEventListners()
 
 const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present']
 

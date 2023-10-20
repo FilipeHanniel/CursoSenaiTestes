@@ -15,9 +15,19 @@ header {
     padding: 20px;
 }
 
-#link_carrinho {
+#link_carrinho, #link_filtrar_capacetes, #link_filtrar_blusas{
     color: antiquewhite;
     cursor: pointer;
+}
+
+.acoes {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.acoes a {
+    flex: 1;
 }
 
 #link_carrinho:hover {
